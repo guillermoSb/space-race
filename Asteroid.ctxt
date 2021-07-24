@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Asteroid
-comment0.text=\n\ Write\ a\ description\ of\ class\ Asteroid\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ El\ Asteroide\ aparece\ en\ el\ mapa\ y\ las\ naves\ lo\ deben\ de\ evitar\ a\ toda\ costa.\n\ Este\ es\ destruido\ si\ un\ laser\ lo\ choca.\n\ Si\ el\ asteroide\ choca\ a\ un\ usuario,\ este\ pierde\ puntos\ o\ termina\ el\ juego.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\n\ Act\ -\ do\ whatever\ the\ Asteroid\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n

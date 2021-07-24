@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Bullet here.
+ * Laser que las naves pueden disparar. 
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -21,19 +21,21 @@ public class Bullet extends Actor
     }
     
     private void checkForCollision() {
-        int x = getX();
-        int worldWidth = getWorld().getWidth();
-        Actor asteroid = getOneObjectAtOffset(0, 0, Asteroid.class);
+        int x = getX(); // Get the current x coordinate
+        int worldWidth = getWorld().getWidth(); // Get the world width
+        Actor asteroid = getOneObjectAtOffset(0, 0, Asteroid.class); // Get the nearest asteroid
         // With World
         if (x >= worldWidth - 10) {
+            // If the bullet is at the end of the map, it needs to dissapear
             getWorld().removeObject(this);
         } else if (asteroid != null) {
             // With Asteroid
             getWorld().removeObject(asteroid);
+            // Remove the asteroid from the map
             getWorld().removeObject(this);
         }
 
     }
     
-    private int defaultSpeed = 8;
+    private int defaultSpeed = 8;   // Default bullet speed
 }

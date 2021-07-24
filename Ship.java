@@ -19,23 +19,27 @@ public class Ship extends Actor
  private int asteroidCoolDown = 1000;
  
  public void act() {
-     checkForMovement();
-     shoot();
-     asteroidSpawn();
+     checkForMovement();    // Check for user input
+     shoot();   // Shoot a laser if needed
+     asteroidSpawn();   // Spawn an asteroid on the world
  }
  
  private void asteroidSpawn() {
+    // If the cooldown time has not passed, return
     if (System.currentTimeMillis() - previousMillisAsteroid < asteroidCoolDown) {
         return;
     }
-    Asteroid asteroid = new Asteroid(); // Crear el asteeroide
-    World world = getWorld();
+    Asteroid asteroid = new Asteroid(); // Create the asteroid
+    World world = getWorld();   // Get the current world
     
+    // Initial coords for the asteroid
     int x = world.getWidth();
     int y = getY();
     
+    // Spawn asteroid
     world.addObject(asteroid, x, y);
     
+    // Set millis
     previousMillisAsteroid = System.currentTimeMillis();
  }
  
@@ -59,19 +63,23 @@ public class Ship extends Actor
 
  }
  
+ // Move up or down depending on the boolean passed
  private void moveUpOrDown(boolean up) {
     turn(90 * (up ? -1 : 1));
     move(moveSpeedUpDown);
     turn(90 * (up ? 1 : -1));
  }
  
+ // Move forwards or backwards depending on the boolean passed
  private void moveForwardOrBackward(boolean forward) {
      move( forward ? moveSpeed : -moveSpeed);
  }
  
+ // Shoot a laser
  private void shoot() {
      if (Greenfoot.isKeyDown("space")) {
          
+         // If the cooldown has not passed, return
          if (System.currentTimeMillis() - previousMillis < bulletCoolDown) {
              return;
          }
