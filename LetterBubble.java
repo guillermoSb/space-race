@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class LetterBubble here.
@@ -45,9 +46,21 @@ public class LetterBubble extends Actor
         previousY = y - 2 ;
         // Remove bubble if needed
         if (x <= 0) {
-            world.removeObject(this);
-            world.showText("", x - 2, y -2); 
+            List<Player> players = world.getObjects(Player.class);
+            int speed = players.get(0).getSpeed();  // get the current player speed
+            players.get(0).setSpeed(speed - 6); // Decrement the player speed
+            this.destroy();
+            LevelOne level = (LevelOne) world;
+            level.getGameManager().decrementScore(); 
         }
+    }
+    
+    void destroy() {
+        World world = getWorld();
+        int x = this.getX();
+        int y = this.getY();
+        world.removeObject(this);
+        world.showText("", previousX, previousY); 
     }
     
     /**

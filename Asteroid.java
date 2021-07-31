@@ -17,6 +17,13 @@ public class Asteroid extends Actor
     public void act()
     {
         // Mover hacia la izquierda a una velocidad constante
-        move(-4);
+        move(-3);
+        
+        
+        // Remove the asteroid if it gets at the end of the screen
+        if (getX() < 5) {
+            World world = getWorld();
+            world.removeObject(this);
+        }
     }
 }

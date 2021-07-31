@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  * Write a description of class MyWorld here.
@@ -20,6 +21,7 @@ public class LevelOne extends World
     }
     
     
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -32,4 +34,10 @@ public class LevelOne extends World
         addObject(manager,0,0);
         addObject(area, 70, 70);
     }
+    
+    public GameManager getGameManager() {
+        List<GameManager> gameManagers = this.getObjects(GameManager.class);
+        return gameManagers.get(0);
+    }       
+    
 }
